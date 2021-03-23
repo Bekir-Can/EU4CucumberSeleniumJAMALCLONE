@@ -66,5 +66,16 @@ public class ContactsStepDefs {
 
     }
 
+    @When("the user clicks the {string} from contacts")
+    public void the_user_clicks_the_from_contacts(String string) {
+
+
+    }
+
+    @Then("the information should be same with database")
+    public void the_information_should_be_same_with_database() {
+
+
+    }
 
 }

@@ -82,6 +82,7 @@ public class ContactsStepDefs {
 
         //get information from UI
         ContactInfoPage contactInfoPage = new ContactInfoPage();
+        BrowserUtils.waitFor(5);
         String actualFullName = contactInfoPage.contactFullName.getText();
         String actualEmail = contactInfoPage.email.getText();
         String actualPhone = contactInfoPage.phone.getText();
@@ -91,9 +92,8 @@ public class ContactsStepDefs {
         System.out.println("actualPhone = " + actualPhone);
 
         //get information from database
-        //to create connection to DBUtils
-        DBUtils.createConnection();
-        //we are getting only one row of result
+
+       //we are getting only one row of result
         String query = "select concat(first_name,'',last_name)as \"full_name\", e.email,phone\n" +
                 "from orocrm_contact c join orocrm_contact_email e\n" +
                 "on c.id = e.owner_id join orocrm_contact_phone p\n" +
@@ -110,10 +110,6 @@ public class ContactsStepDefs {
         System.out.println("expectedEmail = " + expectedEmail);
         System.out.println("expectedPhone = " + expectedPhone);
 
-
-
-        //close connection
-        DBUtils.destroy();
 
 
         //assertion

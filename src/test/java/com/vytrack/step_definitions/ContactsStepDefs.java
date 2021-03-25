@@ -1,6 +1,7 @@
 package com.vytrack.step_definitions;
 
 import com.vytrack.pages.BasePage;
+import com.vytrack.pages.ContactsPage;
 import com.vytrack.pages.DashboardPage;
 import com.vytrack.pages.LoginPage;
 import com.vytrack.utilities.BrowserUtils;
@@ -67,14 +68,20 @@ public class ContactsStepDefs {
     }
 
     @When("the user clicks the {string} from contacts")
-    public void the_user_clicks_the_from_contacts(String string) {
+    public void the_user_clicks_the_from_contacts(String email) {
+        BrowserUtils.waitFor(3);
+        //We have ready method to find email web element in pom class before
+        //we just get email from feature file and pass to that method and will click that web element
+        ContactsPage contactsPage = new ContactsPage();
+        contactsPage.getContactEmail(email).click();
+
 
 
     }
 
     @Then("the information should be same with database")
     public void the_information_should_be_same_with_database() {
-
+        BrowserUtils.waitFor(3);
 
     }
 
